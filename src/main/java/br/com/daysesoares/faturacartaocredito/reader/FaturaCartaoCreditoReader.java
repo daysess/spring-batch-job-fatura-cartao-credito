@@ -54,6 +54,7 @@ public class FaturaCartaoCreditoReader implements ItemStreamReader<FaturaCartaoC
 				faturaCartaoCredito.getTransacoes().add(transacaoAtual);
 			}
 		}
+		return faturaCartaoCredito;
 	}
 
 	private boolean isTransacaoRelacionada(Transacao transacao) throws Exception {

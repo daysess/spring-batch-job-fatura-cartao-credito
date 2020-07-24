@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 
 @EnableBatchProcessing
 @Configuration
-public class FaturaCartaoCreditoJob {
+public class FaturaCartaoCreditoJobConfig {
 
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;

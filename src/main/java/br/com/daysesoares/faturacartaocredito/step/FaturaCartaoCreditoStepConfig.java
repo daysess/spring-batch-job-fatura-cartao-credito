@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import br.com.daysesoares.faturacartaocredito.dominio.FaturaCartaoCredito;
 import br.com.daysesoares.faturacartaocredito.dominio.Transacao;
 import br.com.daysesoares.faturacartaocredito.reader.FaturaCartaoCreditoReader;
+import br.com.daysesoares.faturacartaocredito.writer.TotalTransacoesFooterCallback;
 
 @Configuration
 public class FaturaCartaoCreditoStepConfig {
@@ -23,7 +24,8 @@ public class FaturaCartaoCreditoStepConfig {
 	public Step faturaCartaoCreditoStep(
 			ItemStreamReader<Transacao> lerTransacoesReader,
 			ItemProcessor<FaturaCartaoCredito, FaturaCartaoCredito> carregarDadosClienteProcessor,
-			ItemWriter<FaturaCartaoCredito> escreverFaturaCartaoCredito
+			ItemWriter<FaturaCartaoCredito> escreverFaturaCartaoCredito,
+			TotalTransacoesFooterCallback listener
 			) {
 		return stepBuilderFactory 
 				.get("faturaCartaoCreditoStep")
@@ -31,7 +33,8 @@ public class FaturaCartaoCreditoStepConfig {
 				.reader(new FaturaCartaoCreditoReader(lerTransacoesReader))
 				.processor(carregarDadosClienteProcessor)
 				.writer(escreverFaturaCartaoCredito)
+				.listener(listener)
 				.build();
 	}
-	
+		
 }

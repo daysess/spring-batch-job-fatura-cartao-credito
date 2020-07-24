@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class FaturaCartaoCreditoJobApplication {
+public class FaturaCartaoCreditoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FaturaCartaoCreditoJobApplication.class, args);
+		SpringApplication.run(FaturaCartaoCreditoApplication.class, args);
+
 	}
 
 }
